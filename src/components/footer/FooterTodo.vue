@@ -1,26 +1,52 @@
 <template>
   <div :class="styles.containerBottom">
     <div :class="styles.leftText">
-      <p :class="styles.textPages">1/3</p>
-      <p :class="styles.textAction">left</p>
+      <p :class="styles.textPages">1/{{ totalPages }}</p>
+      <p :class="styles.textAction">tasks left</p>
     </div>
     <div :class="styles.rightText">
-      <p :class="styles.textButtonAll">All</p>
-      <p :class="styles.textActiveButton">Active</p>
-      <p :class="styles.textCompletedButton">Completed</p>
+      <button
+        @click="setFilter('all')"
+        :class="[styles.textButton, filter === 'all' ? styles.active : '']"
+      >
+        All
+      </button>
+      <button
+        @click="setFilter('active')"
+        :class="[styles.textButton, filter === 'active' ? styles.active : '']"
+      >
+        Active
+      </button>
+      <button
+        @click="setFilter('completed')"
+        :class="[
+          styles.textButton,
+          filter === 'completed' ? styles.active : '',
+        ]"
+      >
+        Completed
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import styles from "./FooterTodo.module.scss";
 
 export default {
   name: "FooterTodo",
-  data() {
-    return {
-      styles,
-    };
+  computed: {
+    ...mapState(["filter", "tasks"]),
+    totalPages() {
+      return Math.ceil(this.tasks.length / 10);
+    },
+    styles() {
+      return styles;
+    },
+  },
+  methods: {
+    ...mapActions(["setFilter"]),
   },
 };
 </script>

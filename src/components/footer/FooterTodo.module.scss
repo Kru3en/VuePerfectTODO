@@ -20,21 +20,17 @@
     text-align: center;
 
     gap: 25px;
-    .textButtonAll {
+    .textButton {
       display: grid;
       place-items: center;
-      width: 45px;
-      height: 34px;
+      padding: 3px 10px;
       border-radius: 10px;
-      border: 1px solid $color-xyeta-42;
-    }
-    .textActiveButton {
-      display: grid;
-      place-items: center;
-    }
-    .textCompletedButton {
-      display: grid;
-      place-items: center;
+      border: none;
+      background-color: transparent;
+      color: $color-xyeta-42;
+      &.active {
+        border: 1px solid $color-xyeta-42;
+      }
     }
   }
 }
