@@ -3,14 +3,13 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+const LOCAL_STORAGE_KEY = "tasks";
+
 export default new Vuex.Store({
   state: {
-    tasks: [
-      { id: 1, name: "Task 1", completed: false },
-      { id: 2, name: "Task 2", completed: true },
-    ],
+    tasks: [],
     filter: "all",
-    taskCounter: 2,
+    taskCounter: 0,
   },
   getters: {
     filteredTasks(state) {
@@ -25,6 +24,12 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    setTasks(state, tasks) {
+      state.tasks = tasks;
+    },
+    setTaskCounter(state, counter) {
+      state.taskCounter = counter;
+    },
     setFilter(state, filter) {
       state.filter = filter;
     },
@@ -45,19 +50,37 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    setFilter({ commit }, filter) {
-      commit("setFilter", filter);
+    loadTasksFromStorage({ commit }) {
+      const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+      if (storedData) {
+        commit("setTasks", storedData.tasks || []);
+        commit("setTaskCounter", storedData.taskCounter || 0);
+      }
     },
-    addTaskWithIncrement({ state, commit }) {
+    saveTasksToStorage({ state }) {
+      const dataToSave = {
+        tasks: state.tasks,
+        taskCounter: state.taskCounter,
+      };
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(dataToSave));
+    },
+    setFilter({ commit, dispatch }, filter) {
+      commit("setFilter", filter);
+      dispatch("saveTasksToStorage");
+    },
+    addTaskWithIncrement({ state, commit, dispatch }) {
       const taskName = `Task ${state.taskCounter + 1}`;
       commit("addTask", taskName);
       commit("incrementTaskCounter");
+      dispatch("saveTasksToStorage");
     },
-    toggleTaskCompletion({ commit }, taskId) {
+    toggleTaskCompletion({ commit, dispatch }, taskId) {
       commit("toggleTaskCompletion", taskId);
+      dispatch("saveTasksToStorage");
     },
-    deleteTask({ commit }, taskId) {
+    deleteTask({ commit, dispatch }, taskId) {
       commit("deleteTask", taskId);
+      dispatch("saveTasksToStorage");
     },
   },
   modules: {},
