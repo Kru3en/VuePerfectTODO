@@ -1,0 +1,18 @@
+@import "../../../assets/styles/variables";
+
+.buttonAddTask {
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 50px;
+  background: $color-xyeta;
+  color: $color-300;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23ffca93' stroke-width='4' stroke-dasharray='20%2c 20' stroke-dashoffset='17' stroke-linecap='square'/%3e%3c/svg%3e");
+  //Для себя сейвлю https://kovart.github.io/dashed-border-generator/
+  border-radius: 10px;
+  .taskAddItem {
+    .taskAddText {
+    }
+  }
+}

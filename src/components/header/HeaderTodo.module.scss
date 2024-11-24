@@ -1,0 +1,9 @@
+@import "../../assets/styles/variables";
+
+.containerTop {
+  background-color: $color-300;
+  color: $color-800;
+  display: grid;
+  place-items: center;
+  min-height: 50px;
+}

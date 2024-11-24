@@ -1,0 +1,45 @@
+// Цвета
+$secondary-color: #fe9526;
+$color-100: #fff4e9;
+$color-200: #ffdfbe;
+$color-300: #ffca93;
+$color-400: #feb567;
+$color-500: #fea03c;
+$color-600: #e58622;
+$color-700: #b2681b;
+$color-800: #7f4b13;
+$color-900: #331e08;
+
+// Прозрачности
+$color-opacity-8: #fe952614;
+$color-opacity-16: #fe952629;
+$color-opacity-24: #fe95263d;
+$color-opacity-32: #fe952652;
+$color-opacity-40: #fe952666;
+$color-opacity-48: #fe95267a;
+
+// Дополнительные цвета
+$color-xyeta: #ffecd8;
+$color-xyeta-42: #7f4b1342;
+$color-xyeta2: #fc8f1a;
+
+// Миксины
+@mixin font-style1 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+@mixin font-style2 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-800;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}

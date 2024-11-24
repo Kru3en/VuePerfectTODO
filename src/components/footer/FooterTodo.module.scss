@@ -1,0 +1,40 @@
+@import "../../assets/styles/variables.scss";
+.containerBottom {
+  background-color: $color-300;
+  color: $color-xyeta-42;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+  min-height: 50px;
+  .leftText {
+    display: flex;
+    gap: 2px;
+    .textPages {
+    }
+    .textAction {
+    }
+  }
+  .rightText {
+    display: flex;
+    text-align: center;
+
+    gap: 25px;
+    .textButtonAll {
+      display: grid;
+      place-items: center;
+      width: 45px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid $color-xyeta-42;
+    }
+    .textActiveButton {
+      display: grid;
+      place-items: center;
+    }
+    .textCompletedButton {
+      display: grid;
+      place-items: center;
+    }
+  }
+}

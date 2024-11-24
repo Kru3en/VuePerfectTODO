@@ -1,0 +1,18 @@
+<template>
+  <div :class="styles.containerTop">
+    <p :class="styles.textTop">to do list</p>
+  </div>
+</template>
+
+<script>
+import styles from "./HeaderTodo.module.scss";
+
+export default {
+  name: "HeaderTodo",
+  data() {
+    return {
+      styles,
+    };
+  },
+};
+</script>
