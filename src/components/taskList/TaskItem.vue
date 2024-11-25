@@ -1,16 +1,21 @@
 <template>
-  <div :class="styles.taskItem">
-    <label :class="styles.checkBox">
+  <div :class="styles.taskItem" data-test="taskItem">
+    <label :class="styles.checkBox" data-test="checkBox">
       <input
         type="checkbox"
         :checked="task.completed"
         @change="toggleTaskCompletion(task.id)"
         :class="styles.checkBoxInput"
+        data-test="checkBoxInput"
       />
-      <span :class="styles.checkBoxSpan"></span>
+      <span :class="styles.checkBoxSpan" data-test="checkBoxSpan"></span>
     </label>
-    <p :class="styles.nameTask">{{ task.name }}</p>
-    <button @click="deleteTask(task.id)" :class="styles.closeTaskButton">
+    <p :class="styles.nameTask" data-test="nameTask">{{ task.name }}</p>
+    <button
+      @click="deleteTask(task.id)"
+      :class="styles.closeTaskButton"
+      data-test="closeTaskButton"
+    >
       ✖
     </button>
   </div>

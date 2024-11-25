@@ -1,7 +1,11 @@
 <template>
-  <div :class="styles.buttonAddTask" @click="addTaskWithIncrement">
-    <div :class="styles.taskAddItem">
-      <p :class="styles.taskAddText">Add a new task</p>
+  <div
+    :class="styles.buttonAddTask"
+    @click="addTaskWithIncrement"
+    data-test="buttonAddTask"
+  >
+    <div :class="styles.taskAddItem" data-test="taskAddItem">
+      <p :class="styles.taskAddText" data-test="taskAddText">Add a new task</p>
     </div>
   </div>
 </template>

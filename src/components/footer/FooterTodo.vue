@@ -1,19 +1,21 @@
 <template>
-  <div :class="styles.containerBottom">
-    <div :class="styles.leftText">
-      <p :class="styles.textPages">1/{{ totalPages }}</p>
-      <p :class="styles.textAction">tasks left</p>
+  <div :class="styles.containerBottom" data-test="containerBottom">
+    <div :class="styles.leftText" data-test="leftText">
+      <p :class="styles.textPages" data-test="textPages">1/{{ totalPages }}</p>
+      <p :class="styles.textAction" data-test="textAction">tasks left</p>
     </div>
-    <div :class="styles.rightText">
+    <div :class="styles.rightText" data-test="rightText">
       <button
         @click="setFilter('all')"
         :class="[styles.textButton, filter === 'all' ? styles.active : '']"
+        data-test="filterAll"
       >
         All
       </button>
       <button
         @click="setFilter('active')"
         :class="[styles.textButton, filter === 'active' ? styles.active : '']"
+        data-test="filterActive"
       >
         Active
       </button>
@@ -23,6 +25,7 @@
           styles.textButton,
           filter === 'completed' ? styles.active : '',
         ]"
+        data-test="filterCompleted"
       >
         Completed
       </button>

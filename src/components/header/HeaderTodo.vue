@@ -1,6 +1,6 @@
 <template>
-  <div :class="styles.containerTop">
-    <p :class="styles.textTop">to do list</p>
+  <div :class="styles.containerTop" data-test="containerTop">
+    <p :class="styles.textTop" data-test="textTop">to do list</p>
   </div>
 </template>
 

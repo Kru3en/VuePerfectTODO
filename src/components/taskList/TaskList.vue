@@ -1,8 +1,14 @@
 <template>
-  <div :class="styles.containerCenter">
-    <div :class="styles.containerTask">
-      <div v-if="!hasTasks" :class="styles.noTasks">No tasks available</div>
-      <div v-else :class="styles.containerListTask">
+  <div :class="styles.containerCenter" data-test="containerCenter">
+    <div :class="styles.containerTask" data-test="containerTask">
+      <div v-if="!hasTasks" :class="styles.noTasks" data-test="noTasks">
+        No tasks available
+      </div>
+      <div
+        v-else
+        :class="styles.containerListTask"
+        data-test="containerListTask"
+      >
         <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
       </div>
       <AddTaskButton />
